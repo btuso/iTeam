@@ -44,4 +44,10 @@ public class UsersDAO {
         return BCrypt.hashpw(password, BCrypt.gensalt(12));
     }
 
+    public User getUser(String username) {
+        Query query = new Query(Criteria.where(USERNAME).is(username));
+        User user = mongoTemplate.findOne(query, User.class);
+        return user;
+    }
+
 }

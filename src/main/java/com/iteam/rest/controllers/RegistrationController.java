@@ -11,14 +11,13 @@ import com.iteam.core.service.UsersDAO;
 import com.iteam.rest.request.RegisterUserRequest;
 
 @Controller
-@RequestMapping(value = "users")
 public class RegistrationController {
 
     @Autowired
     private UsersDAO dao;
 
     @ResponseStatus(value = HttpStatus.CREATED)
-    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @RequestMapping(value = "users/register", method = RequestMethod.POST)
     public void registerUser(@RequestBody RegisterUserRequest request) {
         dao.add(request);
     }
